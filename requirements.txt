@@ -2,4 +2,4 @@ transformers
 torch
 gradio
 requests
-BeautifulSoup
+beautifulsoup4
