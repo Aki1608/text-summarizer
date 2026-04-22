@@ -1,4 +1,6 @@
 from transformers import pipeline
+import requests
+from bs4 import BeautifulSoup
 
 class SummerizerEngine:
     model = 'facebook/bart-large-cnn'
@@ -9,6 +11,11 @@ class SummerizerEngine:
         summerizer = None
 
     @staticmethod
-    def get_summery(text):
+    def summerize(text):
         if len(text) < 100:
-            error "Text is too short to summerize."        
+            print('Error: Text is too short to summarize.')
+
+        summarize_text = SummerizerEngine.summerizer(text, max_length=130, min_length=30, do_sample=False)['summary_text']
+        compression_ratio = (len(text)-len(summarize_text))/len(text)*100
+
+        return text, summarize_text, compression_ratio
