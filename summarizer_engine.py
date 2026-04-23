@@ -15,7 +15,7 @@ class SummarizerEngine:
         model = None
 
     @staticmethod
-    def summarize(text):
+    def summarize(text, min_length, max_length):
         if len(text) < 100:
             return "Error: Text is too short to summarize.", "", "0%"
 
@@ -29,8 +29,8 @@ class SummarizerEngine:
         # Generate the Summary (in Numbers)
         summary_ids = SummarizerEngine.model.generate(
             inputs["input_ids"], 
-            max_length=1300, 
-            min_length=30, 
+            max_length=min_length, 
+            min_length=max_length,
             do_sample=False
         )
 
