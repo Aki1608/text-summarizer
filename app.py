@@ -15,16 +15,15 @@ def process_user_input(input):
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
     gr.Markdown("# AI Document Summarizer")
     
-    # ZONE 1: The Input
+    # The Input
     with gr.Row():
         user_input = gr.Textbox(lines=5, label="Paste URL or Text Here")
     
-    # ZONE 2: The Action 
     # By defining the button right after the input, it renders directly below it!
     with gr.Row():
         submit_btn = gr.Button("Summarize Text", variant="primary")
         
-    # ZONE 3: The Outputs
+    # The Outputs
     with gr.Row():
         # Left Side
         with gr.Column():
@@ -35,7 +34,6 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             output_2 = gr.Textbox(label="AI Summary", lines=6)
             output_3 = gr.Label(label="Compression Ratio")
 
-    # The Wiring (This invisible logic always goes at the very end)
     submit_btn.click(
         fn=process_user_input, 
         inputs=[user_input], 
