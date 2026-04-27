@@ -21,15 +21,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
 
     # Add sliders next to the text box
     with gr.Column():
-        max_slider = gr.Slider(minimum=100, maximum=500, value=250, label="Max Length")
-        min_slider = gr.Slider(minimum=30, maximum=100, value=50, label="Min Length")
-    
-    # By defining the button right after the input, it renders directly below it!
-    with gr.Row():
-        submit_btn = gr.Button("Summarize Text", variant="primary")
-        
-    # The Outputs
-    with gr.Row():
+        max_slider = gr.Slider(minimum=100, maximum=500, value=25 
         # Left Side
         with gr.Column():
             output_1 = gr.Textbox(label="Original Text", lines=10)

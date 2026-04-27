@@ -29,8 +29,8 @@ class SummarizerEngine:
         # Generate the Summary (in Numbers)
         summary_ids = SummarizerEngine.model.generate(
             inputs["input_ids"], 
-            max_length=min_length, 
-            min_length=max_length,
+            max_length=int(min_length),
+            min_length=int(max_length),
             do_sample=False
         )
 
